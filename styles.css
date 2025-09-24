@@ -431,6 +431,24 @@ body {
     color: #999;
 }
 
+.form-group-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.form-checkbox {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.form-label-checkbox {
+    margin-bottom: 0;
+    font-weight: 500;
+}
+
 .form-buttons {
     display: flex;
     gap: 15px;

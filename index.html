@@ -101,13 +101,19 @@
 
                     <!-- Input lời nhắn -->
                     <div class="form-group">
-                        <label for="guest-message" class="form-label">Lời nhắn (tùy chọn)</label>
+                        <label for="guest-message" class="form-label">Lời nhắn</label>
                         <div class="textarea-container">
-                            <textarea id="guest-message" class="form-textarea" placeholder="..." maxlength="280"></textarea>
+                            <textarea id="guest-message" class="form-textarea" placeholder="Viết những điều bạn muốn nói với tớ tại đây!" maxlength="280"></textarea>
                             <div class="char-counter">
                                 <span id="char-count">0</span>/280
                             </div>
                         </div>
+                    </div>
+
+                    <!-- Checkbox công khai -->
+                    <div class="form-group form-group-checkbox">
+                        <input type="checkbox" id="is-public" class="form-checkbox" checked>
+                        <label for="is-public" class="form-label-checkbox">Công khai lời nhắn này</label>
                     </div>
 
                     <!-- Buttons -->

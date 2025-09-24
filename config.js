@@ -58,6 +58,11 @@ const CONFIG = {
         maxMessageLength: 280,
         enableCharacterCount: true,
         enableFormValidation: true
+    },
+
+    // Cài đặt API
+    api: {
+        baseUrl: "http://localhost:8080/api" // Thay đổi nếu API của bạn host ở nơi khác
     }
 };
 

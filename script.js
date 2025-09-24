@@ -148,12 +148,9 @@ function handleAccept() {
         document.getElementById('guest-name').focus();
         return;
     }
-
-    // Hiển thị thông báo thành công
-    showNotification('Cảm ơn bạn đã xác nhận tham dự! 🎉', 'success');
     
-    // Gửi dữ liệu (có thể tích hợp với backend)
-    sendResponseData('accept', name, message);
+    // Gửi dữ liệu
+    sendResponseData(true, name, message);
     
     // Reset form
     resetForm();
@@ -170,37 +167,53 @@ function handleDecline() {
         return;
     }
 
-    // Hiển thị thông báo
-    showNotification('Cảm ơn bạn đã phản hồi! 😊', 'info');
-    
     // Gửi dữ liệu
-    sendResponseData('decline', name, message);
+    sendResponseData(false, name, message);
     
     // Reset form
     resetForm();
 }
 
 // Gửi dữ liệu phản hồi
-function sendResponseData(response, name, message) {
+async function sendResponseData(attending, name, message) {
+    const isPublicCheckbox = document.getElementById('is-public');
     const data = {
-        response: response,
         name: name,
-        message: message,
-        timestamp: new Date().toISOString(),
-        userAgent: navigator.userAgent
+        content: message,
+        isPublic: isPublicCheckbox ? isPublicCheckbox.checked : true,
+        attending: attending
     };
 
-    // Log dữ liệu (có thể thay thế bằng API call)
-    console.log('Response data:', data);
-    
-    // Có thể gửi dữ liệu lên server
-    // fetch('/api/response', {
-    //     method: 'POST',
-    //     headers: {
-    //         'Content-Type': 'application/json',
-    //     },
-    //     body: JSON.stringify(data)
-    // });
+    try {
+        const response = await fetch(`${CONFIG.api.baseUrl}/messages`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data)
+        });
+
+        if (!response.ok) {
+            // Lấy thêm chi tiết lỗi từ API nếu có
+            const errorData = await response.json().catch(() => ({ message: 'Không thể gửi dữ liệu. Vui lòng thử lại.' }));
+            throw new Error(errorData.message || `Lỗi HTTP: ${response.status}`);
+        }
+
+        const result = await response.json();
+        console.log('API Response:', result);
+        
+        // Hiển thị thông báo thành công dựa trên phản hồi
+        if (attending) {
+            showNotification('Cảm ơn bạn đã xác nhận tham dự! 🎉', 'success');
+        } else {
+            showNotification('Cảm ơn bạn đã phản hồi! 😊', 'info');
+        }
+
+    } catch (error) {
+        console.error('API Error:', error);
+        // Hiển thị thông báo lỗi cho người dùng
+        showNotification(`Lỗi: ${error.message}`, 'error');
+    }
 }
 
 // Cập nhật đếm ký tự
