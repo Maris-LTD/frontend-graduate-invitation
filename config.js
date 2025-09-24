@@ -20,7 +20,7 @@ const CONFIG = {
         title: "LỄ TỐT NGHIỆP",
         titleEn: "Graduation Ceremony",
         year: "2025",
-        date: "16:00 27/09/2025",
+        date: "10:00 am - 11:00 am 04/10/2025",
         location: "Đại học Bách Khoa Hà Nội",
         googleMapsUrl: "https://maps.google.com/?q=Đại+học+Bách+Khoa+Hà+Nội"
     },
