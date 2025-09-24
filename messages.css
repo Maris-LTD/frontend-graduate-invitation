@@ -1,0 +1,170 @@
+/* styles.css */
+body.messages-page {
+    background: linear-gradient(135deg, #FFF1F3, #FFE4E1);
+    font-family: 'Inter', sans-serif;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    position: relative;
+}
+
+body.messages-page::before,
+body.messages-page::after {
+    content: '';
+    position: absolute;
+    width: 60vw;
+    height: 60vw;
+    background: rgba(255, 239, 239, 0.7);
+    z-index: -1;
+    transform: rotate(45deg);
+    border-radius: 50px;
+}
+
+body.messages-page::before {
+    top: -25vw;
+    left: -15vw;
+}
+
+body.messages-page::after {
+    bottom: -25vw;
+    right: -15vw;
+}
+
+
+.messages-container {
+    position: relative;
+    width: 90vw;
+    height: 75vh;
+    margin: 1rem auto 0;
+    overflow: hidden; /* Thay đổi thành hidden để border-radius hoạt động */
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.messages-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #4A7C59; /* Màu xanh rêu đậm */
+    padding-top: 40px;
+    margin-bottom: 0;
+    font-weight: 800;
+    z-index: 10;
+    position: relative;
+}
+
+.message-card {
+    position: absolute;
+    background-color: white;
+    padding: 15px 20px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    animation: float 20s infinite linear;
+    max-width: 250px;
+    opacity: 1;
+    border-top: 5px solid;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.message-card:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+    z-index: 100 !important; /* Đảm bảo card được focus lên trên */
+    animation-play-state: paused; /* Dừng animation khi hover */
+}
+
+
+.message-author {
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+}
+
+.message-content {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #555;
+}
+
+.back-button {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background-color: rgba(255, 59, 48, 0.8);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    z-index: 1000;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    border: none;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.back-button:hover {
+    background-color: rgba(255, 59, 48, 1);
+    transform: translateY(-2px);
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px) translateX(0px);
+    }
+    25% {
+        transform: translateY(-20px) translateX(20px);
+    }
+    50% {
+        transform: translateY(0px) translateX(40px);
+    }
+    75% {
+        transform: translateY(20px) translateX(20px);
+    }
+    100% {
+        transform: translateY(0px) translateX(0px);
+    }
+}
+
+.sparkle {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: white;
+    opacity: 0.8;
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    animation: sparkle-anim 5s infinite ease-in-out;
+}
+
+@keyframes sparkle-anim {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+    50% {
+        transform: scale(1.5);
+        opacity: 0.2;
+    }
+}
+
+
+/* Responsive Styles for Mobile */
+@media (max-width: 480px) {
+    .messages-title {
+        font-size: 2rem;
+        padding-top: 30px;
+    }
+
+    .message-card {
+        max-width: 85vw; /* Chiếm 85% chiều rộng màn hình */
+        padding: 12px 15px;
+    }
+
+    .message-author {
+        font-size: 1rem;
+    }
+
+    .message-content {
+        font-size: 0.9rem;
+    }
+}

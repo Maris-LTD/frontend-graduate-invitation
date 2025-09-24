@@ -508,10 +508,27 @@ body {
     border-radius: 20px;
     max-width: 800px;
     box-shadow: none;
+    text-align: center;
+    padding: 40px 20px 80px; /* Tăng padding dưới để tạo thêm không gian */
+    border-top: 1px solid #e1e5e9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.footer-thank-you {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .footer-text {
-    font-size: 1rem;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.5rem; /* Tăng kích thước chữ */
     margin-right: 10px;
     color: #50E3C2;
 }
@@ -626,5 +643,27 @@ body {
 }
 
 .loading-text {
-    animation: pulse 2s infinite;
+    animation: pulse 1.5s infinite;
+}
+
+.messages-link-btn {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    background-color: transparent;
+    color: #888;
+    padding: 5px 10px;
+    border-radius: 15px;
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 0.8rem; /* Giảm kích thước chữ */
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.messages-link-btn:hover {
+    background-color: #f0f2f5;
+    color: #555;
+    transform: none; /* Reset transform on hover */
+    box-shadow: none; /* Reset box-shadow on hover */
 }

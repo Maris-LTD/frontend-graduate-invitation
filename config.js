@@ -62,8 +62,37 @@ const CONFIG = {
 
     // Cài đặt API
     api: {
-        baseUrl: "http://localhost:8080/api" // Thay đổi nếu API của bạn host ở nơi khác
-    }
+        baseUrl: "https://be-graduate-invitation-production.up.railway.app/api" // Thay đổi nếu API của bạn host ở nơi khác
+    },
+
+    // Lời nhắn công khai (dữ liệu mẫu/dự phòng)
+    messages: [
+        {
+            name: "Người bạn bí ẩn",
+            content: "Chúc mừng tốt nghiệp nhé! Chúc bạn thành công trên con đường phía trước.",
+            isPublic: true
+        },
+        {
+            name: "Bạn cùng lớp",
+            content: "Tuyệt vời! Cuối cùng cũng ra trường rồi. Luôn giữ vững đam mê nhé!",
+            isPublic: true
+        },
+        {
+            name: "Anonymous",
+            content: "Congratulations on your graduation! Best of luck for the future.",
+            isPublic: true
+        },
+        {
+            name: "Người qua đường",
+            content: "Chúc mừng bạn. Mong rằng bạn sẽ đạt được nhiều thành tựu hơn nữa.",
+            isPublic: true
+        },
+        {
+            name: "Một người bạn",
+            content: "Hành trình mới bắt đầu. Cố lên nhé!",
+            isPublic: true
+        }
+    ]
 };
 
 // Export config để sử dụng trong các file khác
