@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lời Mời Tốt Nghiệp - Đại Học Bách Khoa Hà Nội</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- KHỐI 1: CARD LỜI MỜI TỐT NGHIỆP -->
+    <section class="invitation-section">
+        <div class="container">
+            <!-- Header với tag GRADUATION 2025 -->
+            <div class="invitation-header">
+                <div class="graduation-tag">GRADUATION 2025</div>
+                <h1 class="main-title">Thân mời tham dự cùng mình!</h1>
+            </div>
+
+            <!-- Card lời mời chính - Sử dụng ảnh có sẵn -->
+            <div class="invitation-card-image">
+                <img src="images/Card.jpeg" alt="Card lời mời tốt nghiệp" class="card-image">
+            </div>
+        </div>
+    </section>
+
+    <!-- KHỐI 2: THÔNG TIN SỰ KIỆN -->
+    <section class="event-details-section">
+        <div class="container">
+            <!-- Terminal header -->
+            <div class="terminal-header">
+                <div class="terminal-controls">
+                    <div class="control-btn red"></div>
+                    <div class="control-btn yellow"></div>
+                    <div class="control-btn green"></div>
+                </div>
+                <div class="terminal-title">TERMINAL</div>
+            </div>
+
+            <!-- Terminal content -->
+            <div class="terminal-content">
+                <div class="terminal-line">$ gcc -o location.cpp</div>
+                <div class="terminal-line">$ ./location</div>
+                <div class="terminal-line">> Địa điểm: <span id="terminal-location">Đại học Bách Khoa Hà Nội</span></div>
+            </div>
+
+            <!-- Event info cards -->
+            <div class="event-cards">
+                <div class="loading-indicator">Đang tải thông tin vị trí ...</div>
+                <!-- Card địa điểm -->
+                <div class="info-card location-card">
+                    <div class="card-header">ĐỊA ĐIỂM</div>
+                    <div class="card-content">
+                        <div class="main-info" id="location-info">Đại học Bách Khoa Hà Nội</div>
+                        <button class="map-btn" id="map-btn">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Xem trên Google Maps
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card thời gian -->
+                <div class="info-card time-card">
+                    <div class="card-header">THỜI GIAN</div>
+                    <div class="card-content">
+                        <div class="time-display" id="time-display">16:00 27/09/2025</div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- KHỐI 3: FORM LIÊN HỆ -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-form-container">
+                <!-- Header thông tin liên hệ -->
+                <div class="contact-header">
+                    <div class="contact-info">
+                        <i class="fas fa-phone contact-icon"></i>
+                        <span class="contact-title">Thông tin liên hệ</span>
+                    </div>
+                    <div class="contact-details">
+                        <span class="phone-number" id="phone-number">SDT: 0355641490</span>
+                        <a href="#" id="facebook-link" class="social-link" target="_blank">
+                            <i class="fab fa-facebook social-icon"></i>
+                            <span id="facebook-url-text"></span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Form -->
+                <div class="form-container">
+                    <!-- Input tên -->
+                    <div class="form-group">
+                        <label for="guest-name" class="form-label">Tên của bạn</label>
+                        <input type="text" id="guest-name" class="form-input" placeholder="Nhập tên của bạn">
+                    </div>
+
+                    <!-- Input lời nhắn -->
+                    <div class="form-group">
+                        <label for="guest-message" class="form-label">Lời nhắn (tùy chọn)</label>
+                        <div class="textarea-container">
+                            <textarea id="guest-message" class="form-textarea" placeholder="..." maxlength="280"></textarea>
+                            <div class="char-counter">
+                                <span id="char-count">0</span>/280
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Buttons -->
+                    <div class="form-buttons">
+                        <button class="btn btn-accept" id="accept-btn">
+                            <i class="fas fa-check"></i>
+                            Đồng ý
+                        </button>
+                        <button class="btn btn-decline" id="decline-btn">
+                            <i class="fas fa-times"></i>
+                            Từ chối
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <section class="footer-section">
+        <div class="container">
+            <!-- Footer -->
+            <div class="footer">
+                <span class="footer-text">// Thank you!</span>
+                <i class="fas fa-heart footer-heart"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scripts -->
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
