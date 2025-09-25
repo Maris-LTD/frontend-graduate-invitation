@@ -55,7 +55,7 @@ const CONFIG = {
 
     // Cài đặt form
     form: {
-        maxMessageLength: 280,
+        maxMessageLength: 806,
         enableCharacterCount: true,
         enableFormValidation: true
     },
