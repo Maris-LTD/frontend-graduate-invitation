@@ -27,7 +27,7 @@ const CONFIG = {
 
     // Thông tin liên hệ
     contact: {
-        phone: "0355641490",
+        phone: "0349641509",
         facebookUrl: "https://bitly.li/8vnk", // Thêm link Facebook của bạn ở đây
         email: "your-email@example.com" // Thêm email nếu cần
     },
