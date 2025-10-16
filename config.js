@@ -20,15 +20,15 @@ const CONFIG = {
         title: "LỄ TỐT NGHIỆP",
         titleEn: "Graduation Ceremony",
         year: "2025",
-        date: "10:00 am - 11:00 am 04/10/2025",
-        location: "Đại học Bách Khoa Hà Nội",
-        googleMapsUrl: "https://maps.google.com/?q=Đại+học+Bách+Khoa+Hà+Nội"
+        date: "24/10/2025",
+        location: "Học viện Công nghệ Bưu chính Viễn thông",
+        googleMapsUrl: "https://maps.app.goo.gl/Pzcpg4CV5rvdFBAq8"
     },
 
     // Thông tin liên hệ
     contact: {
-        phone: "0349641509",
-        facebookUrl: "https://bitly.li/8vnk", // Thêm link Facebook của bạn ở đây
+        phone: "0971773121",
+        facebookUrl: "https://www.facebook.com/anglampham” // Thêm link Facebook của bạn ở đây
         email: "your-email@example.com" // Thêm email nếu cần
     },
 
@@ -99,3 +99,4 @@ const CONFIG = {
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = CONFIG;
 }
+
