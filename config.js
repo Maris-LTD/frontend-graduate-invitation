@@ -7,7 +7,7 @@ const CONFIG = {
     // Thông tin cá nhân (không cần thiết vì sử dụng ảnh card có sẵn)
     personalInfo: {
         // Thông tin đã có trong ảnh card
-        cardImage: "images/Card.jpeg" // Đường dẫn đến ảnh card lời mời
+        cardImage: "images\Card2.jpeg" // Đường dẫn đến ảnh card lời mời
     },
 
     // Thông tin trường học (không cần thiết vì sử dụng ảnh card có sẵn)
@@ -28,8 +28,7 @@ const CONFIG = {
     // Thông tin liên hệ
     contact: {
         phone: "0971773121",
-        facebookUrl: "https://www.facebook.com/anglampham” // Thêm link Facebook của bạn ở đây
-        email: "your-email@example.com" // Thêm email nếu cần
+        facebookUrl: "https://www.facebook.com/anglampham"
     },
 
     // Cài đặt giao diện
