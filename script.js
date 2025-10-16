@@ -177,14 +177,26 @@ function handleDecline() {
 // Gửi dữ liệu phản hồi
 async function sendResponseData(attending, name, message) {
     const isPublicCheckbox = document.getElementById('is-public');
+    
+    // Debug logging để kiểm tra checkbox
+    console.log('isPublicCheckbox element:', isPublicCheckbox);
+    console.log('isPublicCheckbox checked:', isPublicCheckbox ? isPublicCheckbox.checked : 'checkbox not found');
+    
+    const isPublicValue = isPublicCheckbox ? isPublicCheckbox.checked : true;
+    
     const data = {
         name: name,
         content: message,
-        isPublic: isPublicCheckbox ? isPublicCheckbox.checked : true,
+        isPublic: isPublicValue,
         attending: attending
     };
+    
+    // Debug logging để kiểm tra dữ liệu gửi đi
+    console.log('Data being sent to API:', data);
 
     try {
+        console.log('Sending request to:', `${CONFIG.api.baseUrl}/messages`);
+        
         const response = await fetch(`${CONFIG.api.baseUrl}/messages`, {
             method: 'POST',
             headers: {
@@ -192,6 +204,9 @@ async function sendResponseData(attending, name, message) {
             },
             body: JSON.stringify(data)
         });
+        
+        console.log('Response status:', response.status);
+        console.log('Response headers:', response.headers);
 
         if (!response.ok) {
             // Lấy thêm chi tiết lỗi từ API nếu có
@@ -201,12 +216,14 @@ async function sendResponseData(attending, name, message) {
 
         const result = await response.json();
         console.log('API Response:', result);
+        console.log('isPublic value in response:', result.isPublic);
         
         // Hiển thị thông báo thành công dựa trên phản hồi
+        const publicStatus = isPublicValue ? 'công khai' : 'riêng tư';
         if (attending) {
-            showNotification('Cảm ơn bạn đã xác nhận tham dự! 🎉', 'success');
+            showNotification(`Cảm ơn bạn đã xác nhận tham dự! 🎉 Lời nhắn của bạn đã được lưu (${publicStatus})`, 'success');
         } else {
-            showNotification('Cảm ơn bạn đã phản hồi! 😊', 'info');
+            showNotification(`Cảm ơn bạn đã phản hồi! 😊 Lời nhắn của bạn đã được lưu (${publicStatus})`, 'info');
         }
 
     } catch (error) {
@@ -280,6 +297,13 @@ function clearFieldError(field) {
 function resetForm() {
     document.getElementById('guest-name').value = '';
     document.getElementById('guest-message').value = '';
+    
+    // Reset checkbox về trạng thái checked mặc định
+    const isPublicCheckbox = document.getElementById('is-public');
+    if (isPublicCheckbox) {
+        isPublicCheckbox.checked = true;
+    }
+    
     updateCharacterCount();
 }
 
